@@ -1,0 +1,254 @@
+/* Footer Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+  color: #e0e0e0;
+  padding: 50px 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #00d9ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #00d9ff, transparent);
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #b0b0b0;
+  margin-bottom: 8px;
+}
+
+/* Quick Links */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.footer-section ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: #00d9ff;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.footer-section ul li a:hover {
+  color: #00d9ff;
+  transform: translateX(5px);
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info p::before {
+  content: '📧';
+  font-size: 14px;
+}
+
+.contact-info p:nth-child(2)::before {
+  content: '📞';
+}
+
+.contact-info p:nth-child(3)::before {
+  content: '📍';
+}
+
+/* Social Icons - Text Based */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Facebook - Blue */
+.social-facebook {
+  background: #1877f2;
+  color: white;
+}
+
+.social-facebook:hover {
+  background: #0d65d9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+/* X (Twitter) - Black */
+.social-x {
+  background: #000000;
+  color: white;
+  font-size: 14px;
+}
+
+.social-x:hover {
+  background: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Instagram - Gradient */
+.social-instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+}
+
+.social-instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+}
+
+/* LinkedIn - Blue */
+.social-linkedin {
+  background: #0a66c2;
+  color: white;
+}
+
+.social-linkedin:hover {
+  background: #004182;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(10, 102, 194, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-bottom p span {
+  color: #00d9ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-section {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+.footer-section:nth-child(4) { animation-delay: 0.4s; }

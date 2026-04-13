@@ -1,0 +1,705 @@
+
+/* ================= RESET & BASE ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+  color: #1a1a2e;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  margin: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 60px 40px;
+  border-radius: 24px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1920") center/cover;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.heroSubtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* ================= SEARCH BAR & SUGGESTIONS ================= */
+.searchBarWrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  width: 100%;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 8px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.searchBar i {
+  font-size: 20px;
+  color: #666;
+  margin-right: 12px;
+}
+
+.searchBar input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+.searchBar input::placeholder {
+  color: #999;
+}
+
+.suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  margin-top: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+  max-height: 250px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0066cc #f0f0f0;
+}
+
+.suggestionsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestionsList::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+.suggestionsList::-webkit-scrollbar-thumb {
+  background: #0066cc;
+  border-radius: 3px;
+}
+
+.suggestionsList::-webkit-scrollbar-thumb:hover {
+  background: #0052a3;
+}
+
+.suggestionsList li {
+  padding: 14px 20px;
+  cursor: pointer;
+  color: #333;
+  font-size: 15px;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+
+.suggestionsList li:hover {
+  background: #f0f5ff;
+  color: #0066cc;
+}
+
+.suggestionsList li:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.suggestionsList li:last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+/* ================= STATS CONTAINER ================= */
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.statIcon {
+  font-size: 36px;
+  color: #fff;
+}
+
+.statInfo {
+  text-align: left;
+}
+
+.statValue {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.statLabel {
+  display: block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ================= CATEGORIES ================= */
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px 20px;
+  flex-wrap: wrap;
+}
+
+.categoryItem {
+  background: white;
+  padding: 20px 28px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 100px;
+}
+
+.categoryItem:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.categoryItem i {
+  font-size: 32px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.categoryItem p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ================= FEATURED ================= */
+.featured {
+  max-width: 1400px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.featured h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1a1a2e;
+}
+
+.listingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.listingGrid article {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.listingGrid article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+}
+
+.itemName {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  padding: 16px;
+  text-transform: capitalize;
+}
+
+.category {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.price {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #0066cc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.content {
+  padding: 20px;
+}
+
+.content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a2e;
+}
+
+.content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.rating {
+  font-size: 14px;
+  margin: 8px 0 16px;
+  color: #ffc107;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+}
+
+.cardActions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cardActions button:first-child {
+  background: #f0f2f5;
+  color: #333;
+}
+
+.cardActions button:first-child:hover {
+  background: #e8eaed;
+}
+
+.cardActions button:last-child {
+  background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.cardActions button:last-child:hover {
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+/* ================= HOW IT WORKS ================= */
+.howItWorks {
+  max-width: 1400px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.howItWorks h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a2e;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.step {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  min-width: 220px;
+  transition: all 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.step .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #0066cc;
+}
+
+.step p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.testimonials h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a2e;
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.testimonialContent p {
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.testimonialContent .rating {
+  margin-bottom: 16px;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.testimonialAuthor img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #0066cc;
+  object-fit: cover;
+}
+
+.testimonialAuthor h5 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.testimonialAuthor span {
+  font-size: 13px;
+  color: #666;
+  display: block;
+}
+
+/* ================= CUSTOMER SERVICES ================= */
+.customerServices {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.customerServices h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1a1a2e;
+}
+
+.servicesIntro {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.serviceItem {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+
+.serviceItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.serviceItem .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #0066cc;
+}
+
+.serviceItem h4 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.serviceItem p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ================= WHY CHOOSE US ================= */
+.whyChooseUs {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.whyChooseUs h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1a1a2e;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.benefitItem {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+
+.benefitItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.benefitItem .icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #0066cc;
+}
+
+.benefitItem h4 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.benefitItem p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin: 12px;
+    padding: 40px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 26px;
+  }
+  
+  .heroSubtitle {
+    font-size: 15px;
+  }
+  
+  .searchBar {
+    margin-bottom: 24px;
+  }
+  
+  .statsContainer {
+    gap: 12px;
+  }
+  
+  .statCard {
+    padding: 14px 18px;
+  }
+  
+  .statIcon {
+    font-size: 28px;
+  }
+  
+  .statValue {
+    font-size: 22px;
+  }
+  
+  .statLabel {
+    font-size: 11px;
+  }
+  
+  .categories {
+    margin: 20px 12px;
+    gap: 12px;
+  }
+  
+  .categoryItem {
+    padding: 14px 18px;
+    min-width: 80px;
+  }
+  
+  .categoryItem i {
+    font-size: 24px;
+  }
+  
+  .featured, .howItWorks, .testimonials, .customerServices, .whyChooseUs {
+    padding: 0 12px;
+  }
+  
+  .listingGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps {
+    gap: 20px;
+  }
+  
+  .step {
+    min-width: 180px;
+    padding: 24px;
+  }
+  
+  .testimonialGrid, .benefitsGrid, .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured h3, .howItWorks h3, .testimonials h3, .customerServices h3, .whyChooseUs h3 {
+    font-size: 24px;
+  }
+}
+
